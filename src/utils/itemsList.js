@@ -5,6 +5,7 @@ const itemList = [
     {
         "id": 1,
         "title": "ZAPATILLAS NITE JOGGER PRIDE (UNISEX)",
+        "brand": "Addidas",
         "subtitle" : "Cloud White / Core Black / Silver Metallic",
         "description": "GRAB THE SPOTLIGHT AND SHOW OFF YOUR PRIDE IN THESE NITE JOGGER SHOES.",
         "price": "14.999",
@@ -21,6 +22,7 @@ const itemList = [
     {
         "id": 2,
         "title": "ZAPATILLAS SUPERSTAR",
+        "brand": "Nike",
         "subtitle" : "Cloud White / Core Black / Core Black",
         "description": "LAS CLÁSICAS ZAPATILLAS CON PUNTERA CON UN ESTAMPADO ÚNICO.",
         "price": "9999",
