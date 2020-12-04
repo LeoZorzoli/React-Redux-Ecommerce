@@ -4,47 +4,48 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Item from '../../components/Item/Item'
 import { useSelector } from 'react-redux'
 
+import './HomePage.css'
+
 import Filter from '../../components/Filter/Filter'
 
 const HomePage = () => {
 
     const actualFilter = useSelector(state => state.filter)
 
-    const filteredAnecdotes = () => {
+    const filterItems = () => {
         if(actualFilter.length !== 0){
-            const anecdotesToShow = itemList.filter(item => actualFilter.includes(item.brand))
+            const itemsToShoW = itemList.filter(item => actualFilter.includes(item.brand))
             return(
-                <div>
-                    {anecdotesToShow.map(item => 
+                <Row>
+                    {itemsToShoW.map(item => 
                         <Item key={item.id} item={item} />
                     )}
-                </div>
+                </Row>
             )
         } else{
             return(
-                <div>
+                <Row>
                     {itemList.map(item => 
                         <Item key={item.id} item={item} />
                     )}
-                </div>
+                </Row>
             )
         }
         
     }
 
     return (
-        <Container>
-            
+        <Container fluid>
             <Row>
-                <Col xl={4}>
+                <Col xl={3}>
                     <Filter />
                 </Col>
-                <Col xl={8}>
-                    {filteredAnecdotes()}
+                <Col xl={9}>
+                    {filterItems()}
                 </Col>
             </Row>
-
         </Container>
+
     )
 }
 

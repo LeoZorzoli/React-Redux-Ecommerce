@@ -12,12 +12,12 @@ const Item = ({item}) => {
     }
 
     return(
-        <Col className="item">
+        <Col xl={3} className="item">
             <div>
                 <p>Title: {item.title}</p>
                 <p>Subtitle: {item.subtitle}</p>
                 <p>Price: {item.price}</p>
-                <Image src={item.src} width="300"/>
+                <Image src={item.src} fluid/>
             </div>
             <div>
                 <Button variant="primary" onClick={addToCart}>Add to cart</Button>

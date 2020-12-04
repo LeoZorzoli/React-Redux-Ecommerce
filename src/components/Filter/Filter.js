@@ -2,6 +2,18 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Row, Button } from 'react-bootstrap'
 import { setFilter, removeFilter } from '../../reducers/filterReducer'
+import categories from '../../utils/categories'
+
+const Category = (props) => {
+    return (
+        <Form.Check
+            label={props.value}
+            value={props.value}
+            name="Cateogry"
+            onChange={props.handleChange}
+        />
+    )
+}
 
 const Filter = () => {
     const dispatch = useDispatch()
@@ -22,20 +34,9 @@ const Filter = () => {
                         Radios
                     </Form.Label>
                     <Col sm={10}>
-                        <Form.Check
-                            label="Addidas"
-                            value="Addidas"
-                            name="formHorizontalRadios"
-                            id="formHorizontalRadios1"
-                            onChange={radioChange}
-                        />
-                        <Form.Check
-                            label="Nike"
-                            value="Nike"
-                            name="formHorizontalRadios"
-                            id="formHorizontalRadios2"
-                            onChange={radioChange}
-                        />
+                        {categories.map(category => 
+                            <Category value={category} handleChange={radioChange} />
+                        )}
                     </Col>
                 </Form.Group>
             </Form>
