@@ -7,6 +7,7 @@ import './NavbarComponent.css'
 const NavbarComponent = () => {
     const cart = useSelector(state => state.cart)
 
+
     return (
         <Navbar expand="lg" className="navbar-component">
             <Container>
@@ -14,7 +15,7 @@ const NavbarComponent = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <NavLink to="/cart" className="nav-link"><i className="fa fa-shopping-cart"></i> {cart.length}</NavLink>
+                        <NavLink to="/cart" className="nav-link"><i className="fa fa-shopping-cart"></i> {cart.items.length}</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

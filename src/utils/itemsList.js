@@ -16,7 +16,7 @@ const itemList = [
         "brand": "Adidas",
         "subtitle" : "Cloud White / Core Black / Silver Metallic",
         "description": "GRAB THE SPOTLIGHT AND SHOW OFF YOUR PRIDE IN THESE NITE JOGGER SHOES.",
-        "price": "14.999",
+        "price": "10600",
         "src": one
     },
     {
@@ -25,7 +25,7 @@ const itemList = [
         "brand": "Adidas",
         "subtitle" : "Cloud White / Core Black / Core Black",
         "description": "LAS CLÁSICAS ZAPATILLAS CON PUNTERA CON UN ESTAMPADO ÚNICO.",
-        "price": "9999",
+        "price": "9600",
         "src": two
     },
     {
@@ -34,7 +34,7 @@ const itemList = [
         "brand": "Adidas",
         "subtitle" : "Cloud White",
         "description": "CARRERA TRAINERS THAT CELEBRATE PRIDE.",
-        "price": " 8999",
+        "price": " 8800",
         "src": three
     },
     {
@@ -43,7 +43,7 @@ const itemList = [
         "brand": "Nike",
         "subtitle" : "Black and Green",
         "description": "Nike React y la unidad Zoom Air",
-        "price": " 13999",
+        "price": " 12100",
         "src": four
     },
     {
@@ -52,7 +52,7 @@ const itemList = [
         "brand": "Nike",
         "subtitle" : "Blue and Black",
         "description": "Nike React y la unidad Zoom Air",
-        "price": " 13999",
+        "price": " 11500",
         "src": five
     },
     {
@@ -61,7 +61,7 @@ const itemList = [
         "brand": "Nike",
         "subtitle" : "Black and White",
         "description": "Nike React y la unidad Zoom Air",
-        "price": " 13999",
+        "price": " 14000",
         "src": six
     },
     {
@@ -70,7 +70,7 @@ const itemList = [
         "brand": "Puma",
         "subtitle" : "Black and White",
         "description": "Nike React y la unidad Zoom Air",
-        "price": " 13999",
+        "price": " 12000",
         "src": seven
     },
     {
@@ -79,7 +79,7 @@ const itemList = [
         "brand": "Puma",
         "subtitle" : "Black and White",
         "description": "Nike React y la unidad Zoom Air",
-        "price": " 13999",
+        "price": " 11400",
         "src": eight
     },
     {
@@ -88,7 +88,7 @@ const itemList = [
         "brand": "Puma",
         "subtitle" : "Black and White",
         "description": "Nike React y la unidad Zoom Air",
-        "price": " 13999",
+        "price": " 14200",
         "src": nine
     }
 ]

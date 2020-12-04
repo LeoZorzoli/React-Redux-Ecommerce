@@ -1,5 +1,41 @@
 .itemInCart{
     border: 1px solid black;
-    padding: 10px;
+    padding: 0px 10px 0px 0px;
     margin: 10px;
 }
+
+.product-cart-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.item-cart-info{
+    padding-top: 20px;
+}
+
+.item-cart-price{
+    font-size: 16px;
+    color: #474747;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.data-container{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #cfcfcf;
+}
+
+.resume{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+}
+
+.form-total-control{
+    border: 1px solid black;
+}
+
+.form-total-control:focus{
+    border: 1px solid grey;
+    box-shadow: none;
+}
+

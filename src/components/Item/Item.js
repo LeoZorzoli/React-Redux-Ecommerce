@@ -2,14 +2,19 @@ import React from 'react'
 import { addItem } from '../../reducers/cartReducer'
 import { Col, Row, Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './Item.css'
 
 const Item = ({item}) => {
     const dispatch = useDispatch()
 
+    const cart = useSelector(state => state.cart)
+    const cartInclude = cart.items.includes(item)
+
     const addToCart = () => {
-        dispatch(addItem(item))
+        if(!cartInclude){
+            dispatch(addItem(item))
+        }
     }
 
     return(
