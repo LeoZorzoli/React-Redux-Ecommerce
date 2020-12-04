@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Form, Col, Row } from 'react-bootstrap'
-import { setFilter } from '../../reducers/filterReducer'
+import { useDispatch, useSelector } from 'react-redux'
+import { Form, Col, Row, Button } from 'react-bootstrap'
+import { setFilter, removeFilter } from '../../reducers/filterReducer'
 
 const Filter = () => {
     const dispatch = useDispatch()
 
     const radioChange = (event) => {
-        dispatch(setFilter(event.target.value))
+        if (event.target.checked){
+            dispatch(setFilter(event.target.value))
+        } else{
+            dispatch(removeFilter(event.target.value))
+        }
     }
 
     return (
@@ -19,7 +23,6 @@ const Filter = () => {
                     </Form.Label>
                     <Col sm={10}>
                         <Form.Check
-                            type="radio"
                             label="Addidas"
                             value="Addidas"
                             name="formHorizontalRadios"
@@ -27,7 +30,6 @@ const Filter = () => {
                             onChange={radioChange}
                         />
                         <Form.Check
-                            type="radio"
                             label="Nike"
                             value="Nike"
                             name="formHorizontalRadios"

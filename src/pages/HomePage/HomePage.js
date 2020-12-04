@@ -1,6 +1,6 @@
 import React from 'react'
 import itemList from '../../utils/itemsList'
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import Item from '../../components/Item/Item'
 import { useSelector } from 'react-redux'
 
@@ -10,11 +10,9 @@ const HomePage = () => {
 
     const actualFilter = useSelector(state => state.filter)
 
-    console.log(actualFilter)
-
     const filteredAnecdotes = () => {
-        if(actualFilter){
-            const anecdotesToShow = itemList.filter(item => item.brand === actualFilter)
+        if(actualFilter.length !== 0){
+            const anecdotesToShow = itemList.filter(item => actualFilter.includes(item.brand))
             return(
                 <div>
                     {anecdotesToShow.map(item => 
@@ -36,9 +34,14 @@ const HomePage = () => {
 
     return (
         <Container>
-            <Filter />
+            
             <Row>
-                {filteredAnecdotes()}
+                <Col xl={4}>
+                    <Filter />
+                </Col>
+                <Col xl={8}>
+                    {filteredAnecdotes()}
+                </Col>
             </Row>
 
         </Container>
