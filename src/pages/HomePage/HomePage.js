@@ -37,10 +37,10 @@ const HomePage = () => {
     return (
         <Container fluid>
             <Row>
-                <Col xl={3}>
+                <Col xl={2}>
                     <Filter />
                 </Col>
-                <Col xl={9}>
+                <Col xl={10}>
                     {filterItems()}
                 </Col>
             </Row>

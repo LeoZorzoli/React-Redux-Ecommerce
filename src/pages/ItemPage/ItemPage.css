@@ -1,0 +1,33 @@
+.item-page{
+    border-bottom: 1px solid #c7c7c7;
+    border-right: 1px solid #c7c7c7;
+    padding: 0px
+}
+
+.product-info{
+    padding: 40px 40px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
+.product-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    margin: 0px;
+}
+
+.product-subtitle{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500&display=swap');
+.product-description{
+    font-family: 'Epilogue', sans-serif;
+    font-size: 20px;
+}
+
+.button-item-page{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}

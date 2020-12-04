@@ -3,15 +3,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Row, Button } from 'react-bootstrap'
 import { setFilter, removeFilter } from '../../reducers/filterReducer'
 import categories from '../../utils/categories'
+import './Filter.css'
 
 const Category = (props) => {
     return (
-        <Form.Check
-            label={props.value}
-            value={props.value}
-            name="Cateogry"
-            onChange={props.handleChange}
-        />
+
+        <div className="form-group filter">
+            <div className="form-check">
+                <input onChange={props.handleChange} value={props.value} className="form-check-input" type="checkbox" id={props.value} />
+                <label className="form-check-label" htmlFor={props.value}>
+                    {props.value}
+                </label>
+            </div>
+        </div>
     )
 }
 
@@ -30,12 +34,9 @@ const Filter = () => {
         <div>
             <Form>
                 <Form.Group as={Row}>
-                    <Form.Label as="legend" column sm={2}>
-                        Radios
-                    </Form.Label>
                     <Col sm={10}>
                         {categories.map(category => 
-                            <Category value={category} handleChange={radioChange} />
+                            <Category key={category} value={category} handleChange={radioChange} />
                         )}
                     </Col>
                 </Form.Group>

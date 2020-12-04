@@ -14,7 +14,7 @@ const NavbarComponent = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <NavLink to="/cart" className="nav-link">Cart <i className="fa fa-shopping-cart"></i> {cart.length}</NavLink>
+                        <NavLink to="/cart" className="nav-link"><i className="fa fa-shopping-cart"></i> {cart.length}</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

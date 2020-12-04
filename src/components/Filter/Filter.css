@@ -1,0 +1,13 @@
+.filter{
+    border: 1px solid black;
+    padding: 10px 0px 10px 10px;
+    margin: 10px;
+    text-align: left;
+    font-size: 18px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.form-check-input{
+    height: 16px;
+    width: 16px;
+}

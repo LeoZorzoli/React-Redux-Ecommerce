@@ -1,5 +1,29 @@
 .item{
     padding: 10px;
     margin: 10px;
-    border: 1px solid black;
+}
+
+.card-footer{
+    text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
+.item-title{
+    font-size: 16px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.button-footer{
+    font-size: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    margin: 10px;
+}
+
+.link-more{
+    color: black;
+}
+
+.link-more:hover{
+    text-decoration: none;
+    color: white;
 }
