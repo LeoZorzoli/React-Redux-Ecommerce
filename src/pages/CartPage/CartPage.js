@@ -2,8 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { deleteItem, incrementQuantity, decrementQuantity } from '../../reducers/cartReducer'
-import { Container, Row, Col, Image, Button, Form } from 'react-bootstrap'
-import { useSelect } from '../../hooks/index'
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import './CartPage.css'
 
 
