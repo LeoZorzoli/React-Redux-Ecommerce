@@ -41,7 +41,7 @@ const ItemInCart = (item) => {
                             </Row>
                         </Col>
                         <Col>
-                            <Button variant="dark" onClick={deleteFromCart}>Delete</Button>
+                            <Button variant="outline-danger" onClick={deleteFromCart}><i className="fa fa-trash"></i></Button>
                         </Col>
                     </Row>
                 </Col>
