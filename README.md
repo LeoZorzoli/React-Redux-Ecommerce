@@ -1,1 +1,1 @@
-![alt-text](https://github.com/TheCodersDream/React-Ecommerce-App-with-Redux/blob/master/ecommerce1.jpg)
+![alt-text](https://github.com/LeoZorzoli/React-Redux-Ecommerce/blob/master/ecommerce1.jpg)
