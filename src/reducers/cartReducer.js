@@ -15,6 +15,24 @@ export const addItem = (content) => {
     }
 }
 
+export const incrementQuantity = (item) => {
+    return async dispatch => {
+        dispatch({
+            type: 'INCREMENT_QUANTITY',
+            data: item
+        })
+    }
+}
+
+export const decrementQuantity = (item) => {
+    return async dispatch => {
+        dispatch({
+            type: 'DECREMENT_QUANTITY',
+            data: item
+        })
+    }
+}
+
 export const deleteItem = (item) => {
     return async dispatch => {
         dispatch({
@@ -27,20 +45,49 @@ export const deleteItem = (item) => {
 const cartReducer = (state = initialState.cart, action) => {
     switch(action.type){
         case 'ADD_ITEM':
+            const itemToAdd = {
+                item: action.data,
+                quantity: 1
+            }
+
             return {
                 ...state,
-                items: [...state.items, action.data],
+                items: [...state.items, itemToAdd],
                 total: Number(state.total) + Number(action.data.price)
             }
         case 'DELETE_ITEM':
-            const item = action.data
+            const item = state.items.find((i) => i.item === action.data)
             return {
                 ...state,
                 items: [
-                    ...state.items.filter((i) => i.id !== item.id)
+                    ...state.items.filter((i) => i.item !== item.item)
                 ],
-                total: Number(state.total) - Number(item.price)
-            }   
+                total: Number(state.total) - Number(item.item.price * item.quantity)
+            } 
+        case 'INCREMENT_QUANTITY':
+            const itemToIncrementQuantity = state.items.find((i) => i.item === action.data)
+            const itemIncremented = {
+                ...itemToIncrementQuantity,
+                quantity: itemToIncrementQuantity.quantity + 1
+            }
+
+            return  {
+                ...state,
+                items: state.items.map((item) => item !== itemToIncrementQuantity ? item : itemIncremented),
+                total: Number(state.total) + Number(action.data.price)
+            }
+        case 'DECREMENT_QUANTITY':
+            const itemToDecrementQuantity = state.items.find((i) => i.item === action.data)
+            const decrementedItem = {
+                ...itemToDecrementQuantity,
+                quantity: itemToDecrementQuantity.quantity - 1
+            }
+
+            return {
+                ...state,
+                items: state.items.map((item) => item !== itemToDecrementQuantity ? item : decrementedItem),
+                total: Number(state.total) - Number(action.data.price)
+            }
         default: 
             return state
     }

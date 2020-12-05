@@ -1,13 +1,24 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { deleteItem } from '../../reducers/cartReducer'
+import { useHistory } from 'react-router-dom'
+import { deleteItem, incrementQuantity, decrementQuantity } from '../../reducers/cartReducer'
 import { Container, Row, Col, Image, Button, Form } from 'react-bootstrap'
+import { useSelect } from '../../hooks/index'
 import './CartPage.css'
 
 
 const ItemInCart = (item) => {
     const dispatch = useDispatch()
-    const i = item.item
+    const i = item.item.item
+
+    const addQuantity = () => {
+        dispatch(incrementQuantity(i))
+    }
+
+    const deleteQuantity = () => {
+        if(item.item.quantity !== 1)
+        dispatch(decrementQuantity(i))
+    }
 
     const deleteFromCart = () => {
         dispatch(deleteItem(i))
@@ -24,16 +35,11 @@ const ItemInCart = (item) => {
                     <p>{i.description}</p>
                     <Row>
                         <Col>
-                            <Form.Group as={Col} controlId="formGridState">
-                                <Form.Control className="form-total-control" as="select" defaultValue="1">
-                                    <option disabled>Choose...</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </Form.Control>
-                            </Form.Group>
+                            <Row>
+                                <Button variant="dark" onClick={deleteQuantity}>-</Button>
+                                    <input className="quantity" value={item.item.quantity} disabled />
+                                <Button variant="dark" onClick={addQuantity}>+</Button>
+                            </Row>
                         </Col>
                         <Col>
                             <Button variant="dark" onClick={deleteFromCart}>Delete</Button>
@@ -47,35 +53,52 @@ const ItemInCart = (item) => {
 
 const CartPage = () => {
     const cart = useSelector(state => state.cart)
+    const history = useHistory()
 
-    return(
-        <Container>
-            <Row>
-                <Col xl={8}>
-                    {cart.items.map(item => 
-                        <ItemInCart key={item.id} item={item} /> 
-                    )}
-                </Col>
-                <Col xl={3}>
-                    <div className="data-container">
-                        <p className="resume"><strong>Resume</strong></p>
-                        <Row>
-                            <Col>
-                                <p>{cart.items.length} Products</p>
-                                <p>Delivery</p>
-                                <p><strong>Total</strong></p>
-                            </Col>
-                            <Col>
-                                <p>${cart.total}</p>
-                                <p>Free</p>
-                                <p><strong>${cart.total}</strong></p>
-                            </Col>
-                        </Row>
-                    </div>
-                </Col>
-            </Row>
-        </Container>
-    )
+    if(cart.items.length !== 0){
+        return(
+            <Container>
+                <Row>
+                    <Col xl={8}>
+                        {cart.items.map(item => 
+                            <ItemInCart key={item.item.id} item={item} /> 
+                        )}
+                    </Col>
+                    <Col xl={3}>
+                        <div className="data-container">
+                            <p className="resume"><strong>Resume</strong></p>
+                            <Row>
+                                <Col>
+                                    <p>{cart.items.length} Products</p>
+                                    <p>Delivery</p>
+                                    <p><strong>Total</strong></p>
+                                </Col>
+                                <Col>
+                                    <p>${cart.total}</p>
+                                    <p>Free</p>
+                                    <p><strong>${cart.total}</strong></p>
+                                </Col>
+                            </Row>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        )
+    } else {
+
+        const goStart = () => {
+            history.push('/')
+        }
+
+        return(
+            <Container className="cart-empty">
+                <p className="title-cart">THE CART IS EMPTY</p>
+                <p className="message-cart">Once you add something to your cart, it will appear here. Ready to start?</p>
+                <Button onClick={goStart} className="go-start-button">Start <i className="fa fa-long-arrow-right arrow-start"></i></Button>
+            </Container>
+        )
+
+    }
 }
 
 export default CartPage

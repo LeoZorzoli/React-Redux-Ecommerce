@@ -10,18 +10,52 @@ import Filter from '../../components/Filter/Filter'
 
 const HomePage = () => {
 
-    const actualFilter = useSelector(state => state.filter)
+    const brandFilter = useSelector(state => state.brandFilter)
+    const genreFilter = useSelector(state => state.genreFilter)   
+    
+    const itemsFilterByBrand = itemList.filter(item => brandFilter.includes(item.brand))
+    const itemsFilterByGenre = itemList.filter(item => genreFilter.includes(item.genre))
 
     const filterItems = () => {
-        if(actualFilter.length !== 0){
-            const itemsToShoW = itemList.filter(item => actualFilter.includes(item.brand))
-            return(
-                <Row>
-                    {itemsToShoW.map(item => 
-                        <Item key={item.id} item={item} />
-                    )}
-                </Row>
-            )
+        if(brandFilter.length !== 0){
+            if(genreFilter.length !== 0){
+                const itemsToShowWithBrandAndGenre = itemsFilterByBrand.filter(item => genreFilter.includes(item.genre))
+                return(
+                    <Row>
+                        {itemsToShowWithBrandAndGenre.map(item => 
+                            <Item key={item.id} item={item} />
+                        )}
+                    </Row>
+                )
+            } else {
+                return(
+                    <Row>
+                        {itemsFilterByBrand.map(item => 
+                            <Item key={item.id} item={item} />
+                        )}
+                    </Row>
+                )
+            }
+        } else if(genreFilter.length !== 0){
+            if(brandFilter.length !== 0){
+                const itemsToShowWithGenreAndBrand = itemsFilterByGenre.filter(item => brandFilter.includes(item.brand))
+                return(
+                    <Row>
+                        {itemsToShowWithGenreAndBrand.map(item => 
+                            <Item key={item.id} item={item} />
+                        )}
+                    </Row>
+                )
+            } else {
+                return(
+                    <Row>
+                        {itemsFilterByGenre.map(item => 
+                            <Item key={item.id} item={item} />
+                        )}
+                    </Row>
+                )
+            }
+
         } else{
             return(
                 <Row>
@@ -31,7 +65,6 @@ const HomePage = () => {
                 </Row>
             )
         }
-        
     }
 
     return (

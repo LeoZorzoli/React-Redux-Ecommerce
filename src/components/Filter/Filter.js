@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Row, Button } from 'react-bootstrap'
-import { setFilter, removeFilter } from '../../reducers/filterReducer'
+import { setBrandFilter, removeBrandFilter } from '../../reducers/brandReducer'
+import { setGenreFilter, removeGenreFilter } from '../../reducers/genreReducer'
 import categories from '../../utils/categories'
 import './Filter.css'
 
@@ -22,11 +23,19 @@ const Category = (props) => {
 const Filter = () => {
     const dispatch = useDispatch()
 
-    const radioChange = (event) => {
+    const radioBrandChange = (event) => {
         if (event.target.checked){
-            dispatch(setFilter(event.target.value))
+            dispatch(setBrandFilter(event.target.value))
         } else{
-            dispatch(removeFilter(event.target.value))
+            dispatch(removeBrandFilter(event.target.value))
+        }
+    }
+
+    const radioGenreChange = (event) => {
+        if (event.target.checked){
+            dispatch(setGenreFilter(event.target.value))
+        } else{
+            dispatch(removeGenreFilter(event.target.value))
         }
     }
 
@@ -36,8 +45,15 @@ const Filter = () => {
                 <Form.Group as={Row}>
                     <Col sm={10}>
                         {categories.map(category => 
-                            <Category key={category} value={category} handleChange={radioChange} />
+                            <Category key={category} value={category} handleChange={radioBrandChange} />
                         )}
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row}>
+                    <Col sm={10}>
+                        <Category key="Man" value="Man" handleChange={radioGenreChange} />
+                        <Category key="Woman" value="Woman" handleChange={radioGenreChange} />
                     </Col>
                 </Form.Group>
             </Form>

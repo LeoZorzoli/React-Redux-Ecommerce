@@ -5,3 +5,12 @@
 .nav-link{
     color: white !important;
 }
+
+.logo{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+}
+
+.cart{
+    font-size: 20px;
+}

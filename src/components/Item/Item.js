@@ -9,7 +9,7 @@ const Item = ({item}) => {
     const dispatch = useDispatch()
 
     const cart = useSelector(state => state.cart)
-    const cartInclude = cart.items.includes(item)
+    const cartInclude = cart.items.find(i => i.item === item)
 
     const addToCart = () => {
         if(!cartInclude){

@@ -3,11 +3,13 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import cartReducer from './reducers/cartReducer'
-import filterReducer from './reducers/filterReducer'
+import brandReducer from './reducers/brandReducer'
+import genreReducer from './reducers/genreReducer'
 
 const reducer = combineReducers({
     cart: cartReducer,
-    filter: filterReducer
+    brandFilter: brandReducer,
+    genreFilter: genreReducer
 })
 
 const store = createStore(

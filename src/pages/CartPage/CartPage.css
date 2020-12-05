@@ -39,3 +39,47 @@
     box-shadow: none;
 }
 
+.quantity{
+    width: 40px;
+    text-align: center;
+}
+
+.cart-empty{
+    text-align: center;
+    padding: 40px;
+}
+
+.title-cart{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 46px;
+}
+
+.message-cart{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 32px;
+}
+
+@media(max-width: 760px){
+    .itemInCart{
+        margin: 10px 0px 0px 0px;
+        padding: 26px;
+    }
+}
+
+.go-start-button{
+    font-size: 28px;
+    background-color: black;
+    font-family: 'JetBrains Mono', monospace;
+    border: none;
+    border: 1px solid black;
+}
+
+.go-start-button:hover{
+    background-color: #d9d9d9;
+    color: black;
+    border: 1px solid black;
+}
+
+.arrow-start{
+    margin-left: 30px;
+}

@@ -7,15 +7,16 @@ import './NavbarComponent.css'
 const NavbarComponent = () => {
     const cart = useSelector(state => state.cart)
 
-
     return (
-        <Navbar expand="lg" className="navbar-component">
+        <Navbar className="navbar-component">
             <Container>
-                <NavLink to="/" className="nav-link">Ecommerce</NavLink>
+                <NavLink to="/" className="nav-link logo">Ecommerce</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <NavLink to="/cart" className="nav-link"><i className="fa fa-shopping-cart"></i> {cart.items.length}</NavLink>
+                        <NavLink to="/cart" className="nav-link cart">
+                            <i className="fa fa-shopping-cart"></i> {cart.items.length === 0 ? '' : cart.items.length}
+                        </NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
