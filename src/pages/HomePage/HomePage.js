@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import itemList from '../../utils/itemsList'
 import { Container, Row, Col } from 'react-bootstrap'
 import Item from '../../components/Item/Item'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { deleteBrandFilter } from '../../reducers/brandReducer'
+import { deleteGenreFilter } from '../../reducers/genreReducer'
 
 import './HomePage.css'
 
@@ -10,8 +12,15 @@ import Filter from '../../components/Filter/Filter'
 
 const HomePage = () => {
 
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(deleteBrandFilter())
+        dispatch(deleteGenreFilter())
+    }, [dispatch])
+
     const brandFilter = useSelector(state => state.brandFilter)
-    const genreFilter = useSelector(state => state.genreFilter)   
+    const genreFilter = useSelector(state => state.genreFilter)  
     
     const itemsFilterByBrand = itemList.filter(item => brandFilter.includes(item.brand))
     const itemsFilterByGenre = itemList.filter(item => genreFilter.includes(item.genre))

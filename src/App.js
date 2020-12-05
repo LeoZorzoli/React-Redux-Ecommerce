@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import HomePage from './pages/HomePage/HomePage'
 import CartPage from './pages/CartPage/CartPage'
@@ -5,7 +6,6 @@ import ItemPage from './pages/ItemPage/ItemPage'
 import NavbarComponent from './components/Navbar/NavbarComponent'
 
 function App() {
-
   return (
     <div >
       <Router>

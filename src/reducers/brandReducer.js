@@ -1,4 +1,6 @@
 
+const initialState = []
+
 export const setBrandFilter = (filter) => {
     return {
         type: "SET_BRAND_FILTER",
@@ -13,13 +15,21 @@ export const removeBrandFilter = (filter) => {
     }
 }
 
-const filterReducer = (state = [], action) => {
+export const deleteBrandFilter = () => {
+    return {
+        type: "DELETE_BRAND_FILTER"
+    }
+}
+
+const filterReducer = (state = initialState, action) => {
     switch(action.type){
         case "SET_BRAND_FILTER":
             return [...state, action.data.filter]
         case "REMOVE_BRAND_FILTER":
             const filterToDelete = action.data
             return state.filter(f => f !== filterToDelete)
+        case "DELETE_BRAND_FILTER":
+            return initialState
         default:
             return state
     }

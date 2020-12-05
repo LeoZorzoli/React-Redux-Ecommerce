@@ -1,3 +1,4 @@
+const initialState = []
 
 export const setGenreFilter = (filter) => {
     return {
@@ -13,13 +14,21 @@ export const removeGenreFilter = (filter) => {
     }
 }
 
-const genreReducer = (state = [], action) => {
+export const deleteGenreFilter = () => {
+    return {
+        type: "DELETE_GENRE_FILTER"
+    }
+}
+
+const genreReducer = (state = initialState, action) => {
     switch(action.type){
         case 'SET_GENRE_FILTER':
             return [...state, action.data.filter]
         case "REMOVE_GENRE_FILTER":
             const filterToDelete = action.data
             return state.filter(f => f !== filterToDelete)
+        case "DELETE_GENRE_FILTER":
+            return initialState
         default:
             return state
     }
