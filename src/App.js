@@ -1,9 +1,9 @@
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import HomePage from './pages/HomePage/HomePage'
-import CartPage from './pages/CartPage/CartPage'
-import ItemPage from './pages/ItemPage/ItemPage'
-import NavbarComponent from './components/Navbar/NavbarComponent'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomePage from './pages/HomePage/HomePage';
+import CartPage from './pages/CartPage/CartPage';
+import ItemPage from './pages/ItemPage/ItemPage';
+import NavbarComponent from './components/Navbar/NavbarComponent';
 
 function App() {
   return (
@@ -14,10 +14,10 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route  path="/cart">
+          <Route exact path="/cart">
             <CartPage />
           </Route>
-          <Route  path="/:id">
+          <Route exact path="/:id">
             <ItemPage />
           </Route>
         </Switch>

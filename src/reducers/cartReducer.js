@@ -50,10 +50,18 @@ const cartReducer = (state = initialState.cart, action) => {
                 quantity: 1
             }
 
-            return {
-                ...state,
-                items: [...state.items, itemToAdd],
-                total: Number(state.total) + Number(action.data.price)
+            const inState = state.items.filter(item => item.item.title === action.data.title)
+
+            if(inState.length !== 0) {
+                return {
+                    ...state
+                }
+            } else {
+                return {
+                    ...state,
+                    items: [...state.items, itemToAdd],
+                    total: Number(state.total) + Number(action.data.price)
+                }
             }
         case 'DELETE_ITEM':
             const item = state.items.find((i) => i.item === action.data)

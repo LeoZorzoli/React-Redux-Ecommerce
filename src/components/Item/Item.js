@@ -2,19 +2,14 @@ import React from 'react'
 import { addItem } from '../../reducers/cartReducer'
 import { Col, Row, Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import './Item.css'
 
 const Item = ({item}) => {
     const dispatch = useDispatch()
 
-    const cart = useSelector(state => state.cart)
-    const cartInclude = cart.items.find(i => i.item === item)
-
     const addToCart = () => {
-        if(!cartInclude){
-            dispatch(addItem(item))
-        }
+        dispatch(addItem(item))
     }
 
     return(
@@ -26,7 +21,7 @@ const Item = ({item}) => {
                         <Col xl={4}>${item.price}</Col>
                     </Row>
                 </Card.Header>
-                <Card.Img variant="top" src={item.src} />
+                <Card.Img variant="top" src={item.image} />
                 <Card.Footer className="card-footer">
                     <Button className="button-footer" variant="outline-dark"><Link className="link-more" to={`/${item.id}`}>See more</Link></Button>
                     <Button className="button-footer" onClick={addToCart} variant="outline-dark">Add to Cart</Button>

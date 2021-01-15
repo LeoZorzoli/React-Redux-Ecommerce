@@ -27,7 +27,7 @@ const ItemInCart = (item) => {
         <Col className="itemInCart">
             <Row>
                 <Col xl={4}>
-                    <Image fluid src={i.src}/>
+                    <Image fluid src={i.image}/>
                 </Col>
                 <Col xl={8} className="item-cart-info">
                     <p><span className="product-cart-title">{i.title}</span> <strong className="item-cart-price">${i.price}</strong></p>
@@ -52,6 +52,7 @@ const ItemInCart = (item) => {
 
 const CartPage = () => {
     const cart = useSelector(state => state.cart)
+
     const history = useHistory()
 
     if(cart.items.length !== 0){
@@ -73,9 +74,9 @@ const CartPage = () => {
                                     <p><strong>Total</strong></p>
                                 </Col>
                                 <Col>
-                                    <p>${cart.total}</p>
+                                    <p>-</p>
                                     <p>Free</p>
-                                    <p><strong>${cart.total}</strong></p>
+                                    <p><strong>${cart.total.toFixed(2)}</strong></p>
                                 </Col>
                             </Row>
                         </div>
